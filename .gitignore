@@ -1,2 +1,4 @@
 .godot/ 
 *.translation 
+# Local helper scripts
+*.bat
