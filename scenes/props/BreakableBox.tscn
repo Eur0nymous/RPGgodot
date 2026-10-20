@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ccm2bfh2no3y7"]
+
+[ext_resource type="Script" uid="uid://btpjwl6p07ha" path="res://systems/destructible/Breakable.gd" id="1_q0sae"]
+[ext_resource type="Script" uid="uid://btdqf7dyi7rqa" path="res://systems/destructible/BreakableComponent.gd" id="2_ov511"]
+[ext_resource type="PackedScene" uid="uid://22vsrbqcrv7l" path="res://scenes/effects/WoodImpact.tscn" id="3_1vxpy"]
+[ext_resource type="PackedScene" uid="uid://dyrs1h8sltgxx" path="res://scenes/effects/WoodDebris.tscn" id="4_tmk3w"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jk54q"]
+friction = 0.8
+bounce = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5eco"]
+albedo_color = Color(0.3264599, 0.099345185, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jk54q"]
+material = SubResource("StandardMaterial3D_w5eco")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jk54q"]
+
+[node name="BreakableBox" type="RigidBody3D" unique_id=2118124692]
+collision_mask = 3
+mass = 2.202
+physics_material_override = SubResource("PhysicsMaterial_jk54q")
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_q0sae")
+loot_chance = 0.8
+impact_effect_scene = ExtResource("3_1vxpy")
+debris_scene = ExtResource("4_tmk3w")
+break_effect_scene = ExtResource("3_1vxpy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=260687118]
+mesh = SubResource("BoxMesh_jk54q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=486345624]
+shape = SubResource("BoxShape3D_jk54q")
+
+[node name="BreakableComponent" type="Node" parent="." unique_id=1171045249]
+script = ExtResource("2_ov511")

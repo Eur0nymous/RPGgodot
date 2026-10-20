@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cj0gkm644tose"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5eco"]
+albedo_color = Color(0.37036446, 0.3703645, 0.37036446, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_jk54q"]
+material = SubResource("StandardMaterial3D_w5eco")
+size = Vector3(0.6, 0.6, 0.6)
+
+[node name="HelmetModel" type="Node3D" unique_id=2126692102]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2144144300]
+mesh = SubResource("PrismMesh_jk54q")

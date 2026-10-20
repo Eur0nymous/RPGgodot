@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Grenade" format=3 uid="uid://c0noc2eay0q2r"]
+
+[ext_resource type="PackedScene" uid="uid://c0rjnd543ixtb" path="res://scenes/projectiles/GrenadeProjectile.tscn" id="1_5vge6"]
+[ext_resource type="Texture2D" uid="uid://cq1he7klgc1ix" path="res://assets/textures/weapons/grenade_39118.png" id="1_7ur0c"]
+[ext_resource type="PackedScene" uid="uid://1v38xay0876s" path="res://assets/models/weapons/Grenade.tscn" id="1_46mqv"]
+[ext_resource type="Script" uid="uid://dhxffn6uw4adu" path="res://data/weapons/Grenade.gd" id="1_mefo7"]
+
+[resource]
+script = ExtResource("1_mefo7")
+grenade_projectile_scene = ExtResource("1_5vge6")
+damage = 100
+cooldown = 1.0
+range = 4.0
+is_ranged = true
+model_scene = ExtResource("1_46mqv")
+id = "grenade"
+name = "Граната"
+description = "Осколочная. Летит по дуге, взрывается через 2 сек."
+icon = ExtResource("1_7ur0c")
+world_model_scene = ExtResource("1_46mqv")
+price = 20
+metadata/_custom_type_script = "uid://dhxffn6uw4adu"

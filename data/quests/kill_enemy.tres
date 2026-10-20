@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://bnrlxgl4est54"]
+
+[ext_resource type="Script" uid="uid://c6d21qh6vxfkj" path="res://data/quests/Quest.gd" id="1_ciiob"]
+[ext_resource type="Resource" uid="uid://dvbimcs8bopw" path="res://data/weapons/pistol.tres" id="1_wb0gj"]
+
+[resource]
+script = ExtResource("1_ciiob")
+id = "kill_enemy"
+title = "Убить врага"
+description = "Найди и убей врага в Пустоши"
+target_flag = "enemy_killed"
+reward_item = ExtResource("1_wb0gj")
+metadata/_custom_type_script = "uid://c6d21qh6vxfkj"

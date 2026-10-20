@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Ammo" format=3 uid="uid://cebwcybo0djhp"]
+
+[ext_resource type="Script" uid="uid://1edjpectnwkg" path="res://data/items/Ammo.gd" id="1_rek7p"]
+[ext_resource type="Texture2D" uid="uid://b1suk53njduoc" path="res://assets/textures/weapons/224912.png" id="1_so3it"]
+[ext_resource type="PackedScene" uid="uid://cnqr1pfia7sx1" path="res://assets/models/ammo/ammo_pistol.tscn" id="3_6lna2"]
+
+[resource]
+script = ExtResource("1_rek7p")
+id = "pistol_ammo"
+name = "Патроны 9мм"
+description = "Стандартные патроны для пистолета"
+icon = ExtResource("1_so3it")
+world_model_scene = ExtResource("3_6lna2")
+stackable = true
+max_stack = 100
+price = 15
+metadata/_custom_type_script = "uid://1edjpectnwkg"

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="RangedWeapon" format=3 uid="uid://yj3uw7iespoj"]
+
+[ext_resource type="Script" uid="uid://c66h7f4c0hnn" path="res://data/weapons/RangedWeapon.gd" id="1_v2yr3"]
+[ext_resource type="Texture2D" uid="uid://vmi82m4rb6df" path="res://assets/textures/weapons/pistol_ico.png" id="1_w8aip"]
+[ext_resource type="PackedScene" uid="uid://cqitghk67oqck" path="res://assets/models/weapons/ak47.tscn" id="2_11um6"]
+[ext_resource type="PackedScene" uid="uid://b4bq5x6endgo0" path="res://scenes/projectiles/projectile.tscn" id="3_ym0wd"]
+
+[resource]
+script = ExtResource("1_v2yr3")
+projectile_speed = 102.14
+projectile_scene = ExtResource("3_ym0wd")
+damage = 45
+cooldown = 0.18
+range = 40.0
+is_ranged = true
+model_scene = ExtResource("2_11um6")
+ammo_type = "rifle"
+magazine_size = 30
+id = "ak47"
+name = "АК47"
+description = "Калаш"
+icon = ExtResource("1_w8aip")
+world_model_scene = ExtResource("2_11um6")
+price = 100
+metadata/_custom_type_script = "uid://c66h7f4c0hnn"

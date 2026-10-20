@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://ph0p83mav2w0"]
+
+[ext_resource type="Script" uid="uid://8nxc64f8qquy" path="res://scenes/npcs/EnemyRanged.gd" id="1_v16tj"]
+[ext_resource type="Script" uid="uid://ej4uf285yoji" path="res://systems/health/HealthComponent.gd" id="1_wpfg2"]
+[ext_resource type="PackedScene" uid="uid://pqb2econu2h2" path="res://scenes/projectiles/EnemyProjectile.tscn" id="2_kyfkg"]
+[ext_resource type="Script" uid="uid://d33jtwlf46k7a" path="res://systems/destructible/GibsComponent.gd" id="4_1bxoa"]
+[ext_resource type="PackedScene" uid="uid://c21jtci0i4fbw" path="res://scenes/effects/EnemyGib.tscn" id="5_eo7gj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v16tj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpfg2"]
+albedo_color = Color(1, 0, 0.7585879, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kyfkg"]
+material = SubResource("StandardMaterial3D_wpfg2")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p04k1"]
+radius = 12.402872
+
+[node name="EnemyRanged" type="CharacterBody3D" unique_id=108015486]
+collision_layer = 32
+collision_mask = 3
+script = ExtResource("1_v16tj")
+projectile_scene = ExtResource("2_kyfkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=66684885]
+shape = SubResource("CapsuleShape3D_v16tj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1767261079]
+mesh = SubResource("CapsuleMesh_kyfkg")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1150898124]
+script = ExtResource("1_wpfg2")
+max_health = 30
+
+[node name="DetectionArea" type="Area3D" parent="." unique_id=578528356]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea" unique_id=506959511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_p04k1")
+
+[node name="ShootPoint" type="Node3D" parent="." unique_id=7892406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31841016, 0.34906495)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=906591288]
+path_desired_distance = 0.5
+target_desired_distance = 0.5
+avoidance_enabled = true
+height = 1.8
+max_speed = 3.0
+
+[node name="GibsComponent" type="Node" parent="." unique_id=1843948452]
+script = ExtResource("4_1bxoa")
+gibs_scene = ExtResource("5_eo7gj")
+gibs_count = 20

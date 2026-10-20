@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://c5k6vo6yv84ap"]
+
+[ext_resource type="Script" uid="uid://dms0d8aaxnykn" path="res://scenes/ui/ChestUI.gd" id="1_vqlch"]
+
+[node name="ChestUi" type="CanvasLayer" unique_id=1573051618]
+script = ExtResource("1_vqlch")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1765176921]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1162050729]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=2101838462]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1005144565]
+layout_mode = 2
+text = "Сундук"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=670725733]
+layout_mode = 2
+
+[node name="PlayerSection" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1239256653]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/PlayerSection" unique_id=1539463758]
+layout_mode = 2
+text = "Игрок"
+
+[node name="PlayerGrid" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/PlayerSection" unique_id=1543525545]
+layout_mode = 2
+columns = 5
+
+[node name="ChestSection" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1887276322]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/ChestSection" unique_id=1496798058]
+layout_mode = 2
+text = "Сундук"
+
+[node name="ChestGrid" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/ChestSection" unique_id=1150689002]
+layout_mode = 2
+columns = 5

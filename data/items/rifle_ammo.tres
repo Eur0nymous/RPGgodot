@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Ammo" format=3 uid="uid://d3vp6ki7uabbs"]
+
+[ext_resource type="Script" uid="uid://1edjpectnwkg" path="res://data/items/Ammo.gd" id="1_g4fih"]
+[ext_resource type="Texture2D" uid="uid://b1suk53njduoc" path="res://assets/textures/weapons/224912.png" id="1_n1351"]
+[ext_resource type="PackedScene" uid="uid://dofnyqe2iq32" path="res://assets/models/ammo/rifle_ammo.tscn" id="3_rw8dw"]
+
+[resource]
+script = ExtResource("1_g4fih")
+ammo_type = "rifle"
+id = "rifle_ammo"
+name = "Патроны для автомата"
+description = "Патроны 5.45"
+icon = ExtResource("1_n1351")
+world_model_scene = ExtResource("3_rw8dw")
+stackable = true
+max_stack = 100
+price = 15
+metadata/_custom_type_script = "uid://1edjpectnwkg"

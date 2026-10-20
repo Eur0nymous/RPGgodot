@@ -1,0 +1,12 @@
+~ start
+Лера: Ты вернулся. Зачем?
+Лера: Здесь больше нечего спасать.
+
+- Я найду их.
+	do FlagManager.set_flag("chose_revenge", true)
+	Лера: Тогда ты умрёшь.
+	=> END
+- Расскажи всё, что видела.
+	do FlagManager.set_flag("chose_info", true)
+	Лера: Это долгая история.
+	=> END

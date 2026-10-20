@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://c0rjnd543ixtb"]
+
+[ext_resource type="Script" uid="uid://by32jo1v5pflc" path="res://systems/destructible/ExplosiveComponent.gd" id="1_ru88o"]
+[ext_resource type="Script" uid="uid://bbg1jnejtjqy" path="res://scenes/projectiles/GrenadeProjectile.gd" id="1_udwap"]
+[ext_resource type="Texture2D" uid="uid://dj8w7iwrvutb3" path="res://assets/textures/weapons/i (1).jpg" id="2_3puo5"]
+[ext_resource type="PackedScene" uid="uid://beimde3yjk2rg" path="res://scenes/effects/ExplosionEffect.tscn" id="3_3puo5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jc2fc"]
+friction = 0.5
+bounce = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64ymn"]
+albedo_color = Color(3.898591e-06, 0.3862522, 0.03412013, 1)
+albedo_texture = ExtResource("2_3puo5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jk54q"]
+albedo_color = Color(0, 0.3388885, 0.035716884, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jk54q"]
+material = SubResource("StandardMaterial3D_jk54q")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hr8d2"]
+albedo_color = Color(0.28485027, 0.28485027, 0.28485027, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uvmyn"]
+material = SubResource("StandardMaterial3D_hr8d2")
+top_radius = 0.13769531
+bottom_radius = 0.13769531
+height = 0.31743622
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6po8g"]
+albedo_color = Color(0.24840015, 0.24840018, 0.24840015, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_15stt"]
+material = SubResource("StandardMaterial3D_6po8g")
+size = Vector3(0.07882996, 0.18700866, 0.24472657)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jk54q"]
+
+[node name="GrenadeProjectile" type="RigidBody3D" unique_id=1269164771]
+transform = Transform3D(0.355, 0, 0, 0, 0.355, 0, 0, 0, 0.355, 0, 0, 0)
+collision_mask = 35
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_jc2fc")
+script = ExtResource("1_udwap")
+fuse_time = 3.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=380574706]
+material_override = SubResource("StandardMaterial3D_64ymn")
+mesh = SubResource("SphereMesh_jk54q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1495534179]
+transform = Transform3D(0.5456873, 0, 0, 0, 1, 0, 0, 0, 0.58143616, 0, 0.55532455, 0)
+mesh = SubResource("CylinderMesh_uvmyn")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1492049014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0016036928, 0.689982, -0.03402464)
+mesh = SubResource("BoxMesh_15stt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=512652938]
+shape = SubResource("SphereShape3D_jk54q")
+
+[node name="ExplosiveComponent" type="Node" parent="." unique_id=1668568853]
+script = ExtResource("1_ru88o")
+damage = 100
+radius = 10.0
+knockback_force = 20.0
+explosion_effect_scene = ExtResource("3_3puo5")
+chain_explosion_delay = 1.0

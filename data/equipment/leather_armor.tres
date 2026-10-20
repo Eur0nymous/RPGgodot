@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Armor" format=3 uid="uid://c31218mc5m0ws"]
+
+[ext_resource type="Script" uid="uid://c85jtuiwh4oj0" path="res://data/equipment/Armor.gd" id="1_fghwd"]
+[ext_resource type="Texture2D" uid="uid://cn3b7jeroop8w" path="res://assets/textures/equipment/armor_ico.png" id="1_swpym"]
+[ext_resource type="PackedScene" uid="uid://do28c5lhv4bvc" path="res://assets/models/equipment/armor_model.tscn" id="3_4dnww"]
+
+[resource]
+script = ExtResource("1_fghwd")
+model_scene = ExtResource("3_4dnww")
+id = "leather_armor"
+name = "Кожаная броня"
+description = "Простая, но защищает"
+icon = ExtResource("1_swpym")
+world_model_scene = ExtResource("3_4dnww")
+price = 200
+metadata/_custom_type_script = "uid://c85jtuiwh4oj0"

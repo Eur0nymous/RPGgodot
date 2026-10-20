@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://22vsrbqcrv7l"]
+
+[ext_resource type="Script" uid="uid://drdu78xyysnwc" path="res://scenes/effects/WoodImpact.gd" id="1_pr1qy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yh7rk"]
+albedo_color = Color(0.27094424, 0.15246412, 4.813075e-08, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_cwj2i"]
+material = SubResource("StandardMaterial3D_yh7rk")
+
+[sub_resource type="Gradient" id="Gradient_2auu8"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w5eco"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jk54q"]
+noise = SubResource("FastNoiseLite_w5eco")
+color_ramp = SubResource("Gradient_2auu8")
+
+[node name="WoodImpact" type="Node3D" unique_id=1003238971]
+script = ExtResource("1_pr1qy")
+
+[node name="Dust" type="CPUParticles3D" parent="." unique_id=798264842]
+emitting = false
+lifetime = 1.2
+one_shot = true
+direction = Vector3(1, 1, 0)
+
+[node name="Chips" type="CPUParticles3D" parent="." unique_id=81389103]
+emitting = false
+amount = 25
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.9
+mesh = SubResource("QuadMesh_cwj2i")
+direction = Vector3(1, 1, 0)
+spread = 60.0
+gravity = Vector3(0, -9, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 3.0
+scale_amount_min = 0.08
+scale_amount_max = 0.08
+
+[node name="Decal" type="Decal" parent="." unique_id=78085908]
+size = Vector3(0.5, 0.3, 0.5)
+texture_albedo = SubResource("NoiseTexture2D_jk54q")

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cyh5bruqstv1q"]
+
+[ext_resource type="Script" uid="uid://b5mx7314atwgp" path="res://systems/interaction/Chest.gd" id="1_cpbjm"]
+[ext_resource type="Script" uid="uid://bp8lq2uamk0t2" path="res://systems/inventory/ChestComponent.gd" id="1_cubxv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4lsa"]
+albedo_color = Color(0.54509807, 0.23137255, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jk54q"]
+material = SubResource("StandardMaterial3D_w4lsa")
+size = Vector3(1, 0.7792969, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpbjm"]
+albedo_color = Color(0.5446504, 0.22953361, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jk54q"]
+material = SubResource("StandardMaterial3D_cpbjm")
+height = 0.23413086
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jk54q"]
+
+[node name="Chest" type="Area3D" unique_id=142591850]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_cpbjm")
+prompt = "Открыть сундук"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1890469471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11035156, 0)
+mesh = SubResource("BoxMesh_jk54q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1260930442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26306152, 0)
+mesh = SubResource("CylinderMesh_jk54q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=829480868]
+shape = SubResource("BoxShape3D_jk54q")
+
+[node name="ChestComponent" type="Node" parent="." unique_id=1002856851]
+script = ExtResource("1_cubxv")

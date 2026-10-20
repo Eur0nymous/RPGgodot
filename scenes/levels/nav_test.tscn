@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://2jcq05ysnq5g"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w5eco"]
+size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jk54q"]
+size = Vector3(20, 0.1, 20)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_jk54q"]
+geometry_parsed_geometry_type = 1
+geometry_collision_mask = 1
+filter_baking_aabb = AABB(-15, -1, -15, 30, 5, 30)
+
+[node name="NavTest" type="Node3D" unique_id=655109633]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1869993084]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=367350169]
+mesh = SubResource("PlaneMesh_w5eco")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=184619425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_jk54q")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=970212616]
+navigation_mesh = SubResource("NavigationMesh_jk54q")

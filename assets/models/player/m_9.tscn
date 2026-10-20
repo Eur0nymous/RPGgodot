@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c7f1h0chtgmh6"]
+
+[ext_resource type="PackedScene" uid="uid://xu3abmv5jkc0" path="res://assets/models/weapons/M9.fbx" id="1_iia6l"]
+
+[node name="M9" unique_id=2062890575 instance=ExtResource("1_iia6l")]

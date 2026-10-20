@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://jxykugffn82l"]
+
+[ext_resource type="Script" uid="uid://cbbxbs4duj3se" path="res://scenes/ui/MerchantUI.gd" id="1_e582t"]
+
+[node name="MerchantUi" type="CanvasLayer" unique_id=128181867]
+script = ExtResource("1_e582t")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1838495143]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1975051332]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1408429724]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=821752981]
+layout_mode = 2
+text = "Торговец"
+
+[node name="MoneyLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=981818805]
+layout_mode = 2
+text = "Деньги: 100"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=8934179]
+layout_mode = 2
+
+[node name="PlayerSection" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1536543796]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/PlayerSection" unique_id=415627700]
+layout_mode = 2
+text = "Ваши предметы"
+
+[node name="PlayerGrid" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/PlayerSection" unique_id=1892981954]
+layout_mode = 2
+columns = 5
+
+[node name="MerchantSection" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1933089955]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/MerchantSection" unique_id=276374335]
+layout_mode = 2
+text = "Товары"
+
+[node name="MerchantGrid" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/MerchantSection" unique_id=1614087157]
+layout_mode = 2
+columns = 5

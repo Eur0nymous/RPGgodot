@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MeleeWeapon" format=3 uid="uid://cy3gx7mh8tguo"]
+
+[ext_resource type="PackedScene" uid="uid://bc3aswiinsop4" path="res://assets/models/weapons/knife_model.tscn" id="1_cgyfw"]
+[ext_resource type="Texture2D" uid="uid://810q3xw503ov" path="res://assets/textures/weapons/knife_ico.png" id="1_eqy3j"]
+[ext_resource type="Script" uid="uid://crt5ipoh667n6" path="res://data/weapons/MeleeWeapon.gd" id="1_tymx8"]
+
+[resource]
+script = ExtResource("1_tymx8")
+cooldown = 0.4
+model_scene = ExtResource("1_cgyfw")
+id = "knife"
+name = "Нож"
+description = "нож"
+icon = ExtResource("1_eqy3j")
+world_model_scene = ExtResource("1_cgyfw")
+price = 50
+metadata/_custom_type_script = "uid://crt5ipoh667n6"

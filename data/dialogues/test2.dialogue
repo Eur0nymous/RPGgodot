@@ -1,0 +1,34 @@
+~ start
+Проводник: Дальше не пойду. Кольцо видишь? Туда нельзя. Убьют.
+ГГ: Меня не убьют. Я свой.
+Проводник: Свой? Ты пять лет в Пустоши. Ты уже не свой. Ты — никто.
+
+if QuestManager.is_completed("kill_enemy"):
+	Проводник: Ты уже получил награду. Иди.
+	=> END
+
+if QuestManager.is_ready_to_turn_in("kill_enemy"):
+	Проводник: Вижу — враг мёртв. Держи пистолет.
+	do QuestManager.complete_quest_by_id("kill_enemy")
+	Проводник: Больше работы нет. Иди к кольцу.
+	=> END
+
+if QuestManager.is_active("kill_enemy"):
+	Проводник: Квест в работе. Убей врага — вернись.
+	=> END
+
+- Спасибо, что довёл.
+	do FlagManager.set_flag("prologue_merciful", true)
+	Проводник: Иди. Только не оглядывайся.
+	=> END
+
+- Слушай, есть работёнка?
+	Проводник: Есть. Враг в Пустоши. Убей — вернись ко мне, дам пистолет.
+	do QuestManager.start_quest_by_id("kill_enemy")
+	ГГ: Договорились.
+	=> END
+
+- Убить проводника, забрать припасы.
+	do FlagManager.set_flag("prologue_killed", true)
+	Проводник: Что... ты...
+	=> END

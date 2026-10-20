@@ -1,0 +1,328 @@
+[gd_scene format=3 uid="uid://dfl0e0xc3s3ph"]
+
+[ext_resource type="PackedScene" uid="uid://dl5yngxjfp3si" path="res://scenes/player/player.tscn" id="1_86d4f"]
+[ext_resource type="Texture2D" uid="uid://bmk2qb86k486b" path="res://assets/textures/world/test_texture2.png" id="2_hlooo"]
+[ext_resource type="Resource" uid="uid://dvbimcs8bopw" path="res://data/weapons/pistol.tres" id="2_mg55r"]
+[ext_resource type="Script" uid="uid://8owxir466fah" path="res://scenes/core/CameraRig.gd" id="2_w20ko"]
+[ext_resource type="Script" uid="uid://bnbb7x7s7ruxl" path="res://systems/interaction/Interactable.gd" id="3_3wv3p"]
+[ext_resource type="Resource" uid="uid://2n2qhbi2ewup" path="res://data/dialogues/test.dialogue" id="4_timdk"]
+[ext_resource type="Resource" uid="uid://dqx2f1vouvheq" path="res://data/dialogues/test2.dialogue" id="5_j0sv7"]
+[ext_resource type="PackedScene" uid="uid://refc6x4qagjy" path="res://scenes/ui/PauseMenu.tscn" id="7_4unv2"]
+[ext_resource type="PackedScene" uid="uid://bds2cl76tjrpm" path="res://systems/interaction/PickupItem.tscn" id="10_ae2j3"]
+[ext_resource type="PackedScene" uid="uid://vaidiq8h4crc" path="res://scenes/npcs/enemy.tscn" id="10_l1je0"]
+[ext_resource type="PackedScene" uid="uid://d1t8kud0hawym" path="res://scenes/ui/InventoryUI.tscn" id="11_ae2j3"]
+[ext_resource type="PackedScene" uid="uid://t06gfflhom36" path="res://scenes/ui/HUD.tscn" id="11_mg55r"]
+[ext_resource type="Resource" uid="uid://cy3gx7mh8tguo" path="res://data/weapons/knife.tres" id="12_mg55r"]
+[ext_resource type="Resource" uid="uid://cebwcybo0djhp" path="res://data/items/ammo_pistol.tres" id="13_khwwd"]
+[ext_resource type="Resource" uid="uid://d3vp6ki7uabbs" path="res://data/items/rifle_ammo.tres" id="14_tqmlb"]
+[ext_resource type="Resource" uid="uid://c31218mc5m0ws" path="res://data/equipment/leather_armor.tres" id="15_iatew"]
+[ext_resource type="Resource" uid="uid://brri75ecenp77" path="res://data/equipment/iron_helmet.tres" id="16_mdsxa"]
+[ext_resource type="PackedScene" uid="uid://ph0p83mav2w0" path="res://scenes/npcs/EnemyRanged.tscn" id="17_hlooo"]
+[ext_resource type="Resource" uid="uid://yj3uw7iespoj" path="res://data/weapons/ak47.tres" id="17_iatew"]
+[ext_resource type="PackedScene" uid="uid://ccm2bfh2no3y7" path="res://scenes/props/BreakableBox.tscn" id="18_iatew"]
+[ext_resource type="PackedScene" uid="uid://cjx8s43paf53j" path="res://scenes/props/ExplosiveBarrel.tscn" id="19_mdsxa"]
+[ext_resource type="Resource" uid="uid://c0noc2eay0q2r" path="res://data/weapons/grenade.tres" id="20_7h42j"]
+[ext_resource type="PackedScene" uid="uid://c0m1r1gfnx7uu" path="res://scenes/ui/HotbarUI.tscn.tscn" id="23_cwlop"]
+[ext_resource type="PackedScene" uid="uid://cyh5bruqstv1q" path="res://scenes/props/Chest.tscn" id="24_0jyoq"]
+[ext_resource type="PackedScene" uid="uid://bv5vwwonfdloa" path="res://scenes/npcs/Merchant.tscn" id="25_3hvif"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hlooo"]
+albedo_color = Color(0.1728327, 0.17283267, 0.17283267, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jk54q"]
+material = SubResource("StandardMaterial3D_hlooo")
+size = Vector2(50, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w5eco"]
+size = Vector3(50, 0.1, 50)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_w5eco"]
+geometry_parsed_geometry_type = 1
+geometry_collision_mask = 1
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_das7w"]
+
+[sub_resource type="Sky" id="Sky_w5eco"]
+sky_material = SubResource("ProceduralSkyMaterial_das7w")
+
+[sub_resource type="Environment" id="Environment_jk54q"]
+background_mode = 2
+sky = SubResource("Sky_w5eco")
+ambient_light_source = 3
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khwwd"]
+albedo_texture = ExtResource("2_hlooo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w20ko"]
+albedo_color = Color(0, 0.3959328, 0.22976193, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jk54q"]
+material = SubResource("StandardMaterial3D_w20ko")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2auu8"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tqmlb"]
+albedo_texture = ExtResource("2_hlooo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yynx6"]
+albedo_color = Color(0.14044729, 0.1404475, 0.14044738, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w5eco"]
+material = SubResource("StandardMaterial3D_yynx6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wv3p"]
+albedo_color = Color(0.16206557, 0.1620656, 0.16206557, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_das7w"]
+size = Vector3(1.1, 1.1, 1.1)
+
+[node name="TestLevel" type="Node3D" unique_id=944144970]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1004572996]
+transform = Transform3D(1.935, 0, 0, 0, 1, 0, 0, 0, 2, 0, -0.05, 0)
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=157391980]
+mesh = SubResource("PlaneMesh_jk54q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=256690006]
+shape = SubResource("BoxShape3D_w5eco")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1931709013]
+navigation_mesh = SubResource("NavigationMesh_w5eco")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=268555651]
+environment = SubResource("Environment_jk54q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1603641846]
+transform = Transform3D(0.8660254, 0.35355338, -0.35355338, 0, 0.70710677, 0.70710677, 0.5, -0.6123724, 0.6123724, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Cube1" type="StaticBody3D" parent="." unique_id=474252842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 5)
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube1" unique_id=1749561616]
+material_override = SubResource("StandardMaterial3D_khwwd")
+mesh = SubResource("BoxMesh_jk54q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube1" unique_id=1797889617]
+shape = SubResource("BoxShape3D_2auu8")
+
+[node name="Cube2" type="StaticBody3D" parent="." unique_id=574155576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 4)
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube2" unique_id=573963216]
+material_override = SubResource("StandardMaterial3D_tqmlb")
+mesh = SubResource("BoxMesh_jk54q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube2" unique_id=948046775]
+shape = SubResource("BoxShape3D_2auu8")
+
+[node name="Player" parent="." unique_id=1439890716 instance=ExtResource("1_86d4f")]
+transform = Transform3D(1.515, 0, 0, 0, 1.515, 0, 0, 0, 1.515, 0, 2, 0)
+push_strength = 20.0
+
+[node name="CameraRig" type="SpringArm3D" parent="." unique_id=1024005822]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 0, 0)
+collision_mask = 0
+spring_length = 12.0
+script = ExtResource("2_w20ko")
+target_path = NodePath("../Player")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1654452775]
+current = true
+
+[node name="TestInteractable" type="Area3D" parent="." unique_id=1305409710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.830761, 0, 0)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_3wv3p")
+highlight_color = Color(0.9999998, 0.27513546, 0.9474371, 1)
+dialogue_resource = ExtResource("4_timdk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestInteractable" unique_id=940702534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_w5eco")
+surface_material_override/0 = SubResource("StandardMaterial3D_3wv3p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestInteractable" unique_id=181149557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_das7w")
+
+[node name="TestInteractable2" type="Area3D" parent="." unique_id=1640758446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.611193, 0, -5.3631763)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_3wv3p")
+highlight_color = Color(0.9999998, 0.27513546, 0.9474371, 1)
+dialogue_resource = ExtResource("5_j0sv7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestInteractable2" unique_id=1877506084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_w5eco")
+surface_material_override/0 = SubResource("StandardMaterial3D_3wv3p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestInteractable2" unique_id=390479734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_das7w")
+
+[node name="PauseMenu" parent="." unique_id=1344928325 instance=ExtResource("7_4unv2")]
+
+[node name="Enemy" parent="." unique_id=1544056426 node_paths=PackedStringArray("patrol_points") instance=ExtResource("10_l1je0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.417059, 1, 0)
+patrol_points = [NodePath("../points/PatrolPoint1"), NodePath("../points/PatrolPoint2"), NodePath("../points/PatrolPoint3"), NodePath("../points/PatrolPoint4")]
+
+[node name="InventoryUI" parent="." unique_id=714559207 instance=ExtResource("11_ae2j3")]
+
+[node name="HUD" parent="." unique_id=2099842557 instance=ExtResource("11_mg55r")]
+
+[node name="EnemyRanged" parent="." unique_id=108015486 node_paths=PackedStringArray("patrol_points") instance=ExtResource("17_hlooo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1, 1, 19.425)
+patrol_points = [NodePath("../points/PatrolPoint5"), NodePath("../points/PatrolPoint6"), NodePath("../points/PatrolPoint7"), NodePath("../points/PatrolPoint8")]
+
+[node name="points" type="Node3D" parent="." unique_id=1975709545]
+
+[node name="PatrolPoint1" type="Node3D" parent="points" unique_id=1570559381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.031765, 0, 14.51461)
+
+[node name="PatrolPoint2" type="Node3D" parent="points" unique_id=387867979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.59657, 0, -18.793373)
+
+[node name="PatrolPoint3" type="Node3D" parent="points" unique_id=644287403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.805655, 0, -17.31562)
+
+[node name="PatrolPoint4" type="Node3D" parent="points" unique_id=1549820934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.664825, 0, 16.955246)
+
+[node name="PatrolPoint5" type="Node3D" parent="points" unique_id=1611649413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.031765, 0, 20.331696)
+
+[node name="PatrolPoint6" type="Node3D" parent="points" unique_id=1394509746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.031765, 0, 21.654453)
+
+[node name="PatrolPoint7" type="Node3D" parent="points" unique_id=119794247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.302876, 0, 22.953312)
+
+[node name="PatrolPoint8" type="Node3D" parent="points" unique_id=1714173914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.32323, 0, 16.955246)
+
+[node name="PickupItem8" parent="." unique_id=1194458694 instance=ExtResource("10_ae2j3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7925711, -11.7955)
+item = ExtResource("13_khwwd")
+amount = 30
+prompt = "Подобрать патроны"
+
+[node name="PickupItem9" parent="." unique_id=822037916 instance=ExtResource("10_ae2j3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8329248, 1.7925711, -11.7955)
+item = ExtResource("14_tqmlb")
+amount = 30
+prompt = "Подобрать патроны"
+
+[node name="House" type="Node3D" parent="." unique_id=190831671]
+
+[node name="BreakableBox4" parent="House" unique_id=2118124692 instance=ExtResource("18_iatew")]
+transform = Transform3D(0.44730353, 0, 0, 0, 3.6981916, 0, 0, 0, 5.5645733, 10.972888, 1.84, -30.109)
+
+[node name="BreakableBox5" parent="House" unique_id=1907313411 instance=ExtResource("18_iatew")]
+transform = Transform3D(0.44730353, 0, 0, 0, 3.6981916, 0, 0, 0, 5.5645733, 16.132689, 1.84, -30.109)
+
+[node name="BreakableBox6" parent="House" unique_id=1033981465 instance=ExtResource("18_iatew")]
+transform = Transform3D(-0.00091050466, 0, -5.564562, 0, 3.6981916, 0, 0.44730258, 0, -0.011326916, 13.564456, 1.84, -33.1257)
+
+[node name="BreakableBox7" parent="House" unique_id=1565552767 instance=ExtResource("18_iatew")]
+transform = Transform3D(-0.0026733924, 0, 1.7829161, 0, 3.6981916, 0, -0.44910505, 0, -0.010613183, 11.58007, 1.84, -27.243668)
+
+[node name="BreakableBox8" parent="House" unique_id=1910832374 instance=ExtResource("18_iatew")]
+transform = Transform3D(-0.0026733924, 0, 1.7829161, 0, 3.6981916, 0, -0.44910505, 0, -0.010613183, 15.427194, 1.84, -27.243668)
+
+[node name="BreakableBox9" parent="House" unique_id=922729880 instance=ExtResource("18_iatew")]
+transform = Transform3D(-0.008381573, 5.862187, 0, -0.5176676, -0.094914876, 0, 0, 0, 6.0952716, 13.468445, 4.0943727, -30.109)
+
+[node name="Barels" type="Node3D" parent="." unique_id=990962684]
+
+[node name="ExplosiveBarrel" parent="Barels" unique_id=1726993170 instance=ExtResource("19_mdsxa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.293819, 4.3086233, -24.906933)
+explosive_radius = 6.0
+chain_explosion_delay = 1.0
+
+[node name="ExplosiveBarrel2" parent="Barels" unique_id=1651594521 instance=ExtResource("19_mdsxa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.318987, 4.3086233, -24.906933)
+explosive_radius = 6.0
+chain_explosion_delay = 1.0
+
+[node name="ExplosiveBarrel3" parent="Barels" unique_id=137499070 instance=ExtResource("19_mdsxa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.955414, 4.3086233, -24.906933)
+explosive_radius = 6.0
+chain_explosion_delay = 1.0
+
+[node name="ExplosiveBarrel4" parent="Barels" unique_id=409060084 instance=ExtResource("19_mdsxa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.293819, 4.3086233, -20.645988)
+explosive_radius = 6.0
+chain_explosion_delay = 1.0
+
+[node name="ExplosiveBarrel5" parent="Barels" unique_id=1248454057 instance=ExtResource("19_mdsxa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.568489, 4.3086233, -27.974182)
+explosive_radius = 6.0
+chain_explosion_delay = 1.0
+
+[node name="Items" type="Node3D" parent="." unique_id=1518356166]
+
+[node name="PickupItem" parent="Items" unique_id=145092919 instance=ExtResource("10_ae2j3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3541405, 2.0250294, 0)
+item = ExtResource("2_mg55r")
+
+[node name="PickupItem2" parent="Items" unique_id=24214049 instance=ExtResource("10_ae2j3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9017482, 2.3126786, -4.1623297)
+item = ExtResource("12_mg55r")
+
+[node name="PickupItem3" parent="Items" unique_id=116177495 instance=ExtResource("10_ae2j3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6483755, 1.9038143, 0)
+mass = 3.0
+item = ExtResource("15_iatew")
+prompt = "Подобрать броню"
+
+[node name="PickupItem4" parent="Items" unique_id=1127679336 instance=ExtResource("10_ae2j3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6483755, 1.9038143, -3.878148)
+mass = 2.0
+item = ExtResource("16_mdsxa")
+prompt = "Подобрать броню"
+
+[node name="PickupItem5" parent="Items" unique_id=1748156721 instance=ExtResource("10_ae2j3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.996446, 1.6964169, -10.424015)
+mass = 5.0
+item = ExtResource("17_iatew")
+
+[node name="PickupItem6" parent="Items" unique_id=952815006 instance=ExtResource("10_ae2j3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13525867, 1.9637609, -5.3028393)
+item = ExtResource("20_7h42j")
+
+[node name="PickupItem7" parent="Items" unique_id=1246072572 instance=ExtResource("10_ae2j3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4978967, 1.9637609, -5.3028393)
+item = ExtResource("20_7h42j")
+
+[node name="Box" type="Node3D" parent="." unique_id=742181392]
+
+[node name="BreakableBox" parent="Box" unique_id=844541315 instance=ExtResource("18_iatew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6092343, 0.48277903, -19.061335)
+loot_item = ExtResource("17_iatew")
+
+[node name="BreakableBox2" parent="Box" unique_id=15578799 instance=ExtResource("18_iatew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5608501, 1.0834618, -19.253029)
+loot_item = ExtResource("15_iatew")
+
+[node name="BreakableBox3" parent="Box" unique_id=645872930 instance=ExtResource("18_iatew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2427745, 0.48277903, -19.061335)
+loot_item = ExtResource("16_mdsxa")
+
+[node name="HotbarUi" parent="." unique_id=110908876 instance=ExtResource("23_cwlop")]
+
+[node name="Chest" parent="." unique_id=142591850 instance=ExtResource("24_0jyoq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.038689, 0.4868121, -13.7469425)
+
+[node name="Merchant" parent="." unique_id=976508038 instance=ExtResource("25_3hvif")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.905474, 0.99320996, 3.6085525)

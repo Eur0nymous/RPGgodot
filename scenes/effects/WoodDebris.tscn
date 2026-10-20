@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dyrs1h8sltgxx"]
+
+[ext_resource type="Script" uid="uid://stm3gnr8ipch" path="res://scenes/effects/WoodDebris.gd" id="1_hy7h5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jk54q"]
+friction = 0.6
+bounce = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2auu8"]
+albedo_color = Color(0.31653976, 0.09264401, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jk54q"]
+material = SubResource("StandardMaterial3D_2auu8")
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w5eco"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[node name="WoodDebris" type="RigidBody3D" unique_id=402204566]
+mass = 0.104
+physics_material_override = SubResource("PhysicsMaterial_jk54q")
+continuous_cd = true
+script = ExtResource("1_hy7h5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1517383568]
+mesh = SubResource("BoxMesh_jk54q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1470886409]
+shape = SubResource("BoxShape3D_w5eco")

@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://t06gfflhom36"]
+
+[ext_resource type="Script" uid="uid://ctibxt31t0ioj" path="res://scenes/ui/HUD.gd" id="1_kw0id"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5eco"]
+bg_color = Color(0.42358288, 0.42358288, 0.42358288, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6651851, 0.6651851, 0.6651851, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk54q"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2auu8"]
+bg_color = Color(0.60038817, 0.60038817, 0.43146813, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="HUD" type="CanvasLayer" unique_id=2099842557]
+script = ExtResource("1_kw0id")
+
+[node name="InteractionPrompt" type="Label" parent="." unique_id=399631924]
+offset_left = 4.0
+offset_top = 349.0
+offset_right = 1153.0
+offset_bottom = 403.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1265554236]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 50.0
+theme_override_styles/background = SubResource("StyleBoxFlat_w5eco")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jk54q")
+value = 100.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="." unique_id=1853544153]
+offset_left = 20.0
+offset_top = 55.0
+offset_right = 60.0
+offset_bottom = 78.0
+text = "100 / 100"
+
+[node name="CastLabel" type="Label" parent="." unique_id=2051878635]
+offset_left = 20.0
+offset_top = 80.0
+offset_right = 60.0
+offset_bottom = 103.0
+text = "Каста: —"
+
+[node name="WeaponSlot" type="PanelContainer" parent="." unique_id=1305867983]
+offset_left = 27.0
+offset_top = 116.0
+offset_right = 227.0
+offset_bottom = 186.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2auu8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WeaponSlot" unique_id=257436599]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="WeaponIcon" type="TextureRect" parent="WeaponSlot/HBoxContainer" unique_id=1445916147]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WeaponName" type="Label" parent="WeaponSlot/HBoxContainer" unique_id=91271762]
+layout_mode = 2
+text = "—"
+horizontal_alignment = 1
+
+[node name="QuestTracker" type="Label" parent="." unique_id=208100951]
+offset_left = 835.0
+offset_top = 8.0
+offset_right = 1115.0
+offset_bottom = 208.0
+autowrap_mode = 3
+
+[node name="QuestLabel" type="Label" parent="QuestTracker" unique_id=1250848816]
+layout_mode = 0
+offset_left = -102.0
+offset_top = 5.0
+offset_right = -28.0
+offset_bottom = 28.0
+text = "Задания:"
+
+[node name="MoneyLabel" type="Label" parent="." unique_id=1094520703]
+offset_left = 1006.0
+offset_top = 616.0
+offset_right = 1086.0
+offset_bottom = 639.0
+text = "0 ₽"

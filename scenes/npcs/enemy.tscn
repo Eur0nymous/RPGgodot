@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://vaidiq8h4crc"]
+
+[ext_resource type="Script" uid="uid://b8blx3oy5kl85" path="res://scenes/npcs/Enemy.gd" id="1_wk5vr"]
+[ext_resource type="Script" uid="uid://ej4uf285yoji" path="res://systems/health/HealthComponent.gd" id="2_kc8xr"]
+[ext_resource type="Script" uid="uid://d33jtwlf46k7a" path="res://systems/destructible/GibsComponent.gd" id="3_tj0q7"]
+[ext_resource type="PackedScene" uid="uid://c21jtci0i4fbw" path="res://scenes/effects/EnemyGib.tscn" id="4_d7yn8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2auu8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_w5eco"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_srf1h"]
+radius = 8.0
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1544056426]
+collision_layer = 32
+script = ExtResource("1_wk5vr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=861271684]
+shape = SubResource("CapsuleShape3D_2auu8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1134394747]
+mesh = SubResource("CapsuleMesh_w5eco")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1945577806]
+script = ExtResource("2_kc8xr")
+max_health = 50
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1123660470]
+path_desired_distance = 0.5
+target_desired_distance = 0.5
+avoidance_enabled = true
+height = 1.8
+max_speed = 3.0
+
+[node name="DetectionArea" type="Area3D" parent="." unique_id=668052740]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea" unique_id=503849598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_srf1h")
+
+[node name="GibsComponent" type="Node" parent="." unique_id=1187713620]
+script = ExtResource("3_tj0q7")
+gibs_scene = ExtResource("4_d7yn8")
+gibs_count = 20

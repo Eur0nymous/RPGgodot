@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Helmet" format=3 uid="uid://brri75ecenp77"]
+
+[ext_resource type="Texture2D" uid="uid://um50cmflm57e" path="res://assets/textures/equipment/helmet_ico.png" id="1_3cout"]
+[ext_resource type="Script" uid="uid://bgiw184yeybvh" path="res://data/equipment/Helmet.gd" id="1_hle76"]
+[ext_resource type="PackedScene" uid="uid://cj0gkm644tose" path="res://assets/models/equipment/helmet_model.tscn" id="3_jmw4y"]
+
+[resource]
+script = ExtResource("1_hle76")
+model_scene = ExtResource("3_jmw4y")
+id = "iron_helmet"
+name = "Железный шлем"
+description = "Тяжёлый, но надёжный"
+icon = ExtResource("1_3cout")
+world_model_scene = ExtResource("3_jmw4y")
+price = 150
+metadata/_custom_type_script = "uid://bgiw184yeybvh"

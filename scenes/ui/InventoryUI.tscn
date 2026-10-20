@@ -1,0 +1,192 @@
+[gd_scene format=3 uid="uid://d1t8kud0hawym"]
+
+[ext_resource type="Script" uid="uid://1su88r6gogud" path="res://scenes/ui/InventoryUI.gd" id="1_p0ay3"]
+[ext_resource type="Script" uid="uid://b2df7v5oh050" path="res://scenes/ui/EquipmentSlot.gd" id="2_jywan"]
+[ext_resource type="Script" uid="uid://cxogr5ycxmxl3" path="res://scenes/ui/InventoryPanel.gd" id="2_ufdhg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5eco"]
+bg_color = Color(0.3491902, 0.3491902, 0.3491902, 0.94900006)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.735357, 0.735357, 0.735357, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="InventoryUI" type="CanvasLayer" unique_id=714559207]
+script = ExtResource("1_p0ay3")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1766328243]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 62.0
+offset_top = 126.055
+offset_right = 562.0
+offset_bottom = 580.05585
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w5eco")
+script = ExtResource("2_ufdhg")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1066410334]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1698663693]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=2051291433]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Инвентарь"
+horizontal_alignment = 1
+
+[node name="MainHBox" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=485840848]
+layout_mode = 2
+
+[node name="EquipmentSection" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox" unique_id=957569998]
+layout_mode = 2
+
+[node name="EquipTitle" type="Label" parent="Panel/MarginContainer/VBoxContainer/MainHBox/EquipmentSection" unique_id=1964762876]
+layout_mode = 2
+text = "Экипировка"
+
+[node name="EquipmentGrid" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/EquipmentSection" unique_id=688623523]
+layout_mode = 2
+
+[node name="WeaponSlotUI" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/EquipmentSection/EquipmentGrid" unique_id=1488914914]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+script = ExtResource("2_jywan")
+
+[node name="ArmorSlotUI" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/EquipmentSection/EquipmentGrid" unique_id=999373491]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+script = ExtResource("2_jywan")
+
+[node name="HelmetSlotUI" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/EquipmentSection/EquipmentGrid" unique_id=1193019260]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+script = ExtResource("2_jywan")
+
+[node name="InventorySection" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox" unique_id=1716129793]
+layout_mode = 2
+
+[node name="InvTitle" type="Label" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection" unique_id=1586422317]
+layout_mode = 2
+text = "Сумка"
+
+[node name="ItemGrid" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection" unique_id=630492924]
+layout_mode = 2
+columns = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=629890503]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=1458047020]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=803025748]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer4" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=1788879600]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer5" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=159451677]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer6" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=2142088432]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer7" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=337771733]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer8" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=966144852]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer9" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=1139212396]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer10" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=1887308287]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer11" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=687057274]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer12" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=2063524316]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer13" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=677357241]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer14" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=1534206618]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer15" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=1687278038]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer16" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=1534892741]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer17" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=1891305134]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer18" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=519482898]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer19" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=1388242562]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer20" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=1766118667]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer21" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=1036124305]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer22" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=213373175]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer23" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=1897028076]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer24" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=1331129088]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="PanelContainer25" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer/MainHBox/InventorySection/ItemGrid" unique_id=1584361540]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="HintLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=449867690]
+layout_mode = 2
+text = "ЛКМ — взять/экипировать"

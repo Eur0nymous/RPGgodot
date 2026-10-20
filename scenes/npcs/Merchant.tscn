@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bv5vwwonfdloa"]
+
+[ext_resource type="Script" uid="uid://shy8bf5ty7or" path="res://systems/inventory/MerchantComponent.gd" id="1_n5lsg"]
+[ext_resource type="Script" uid="uid://wubqoqutho8t" path="res://systems/interaction/Merchant.gd" id="1_rr85y"]
+[ext_resource type="Script" uid="uid://bkan5fkduxkum" path="res://data/items/Item.gd" id="3_hu4mj"]
+[ext_resource type="Resource" uid="uid://dvbimcs8bopw" path="res://data/weapons/pistol.tres" id="4_v1r6a"]
+[ext_resource type="Resource" uid="uid://yj3uw7iespoj" path="res://data/weapons/ak47.tres" id="5_hvxv6"]
+[ext_resource type="Resource" uid="uid://c0noc2eay0q2r" path="res://data/weapons/grenade.tres" id="6_wsosj"]
+[ext_resource type="Resource" uid="uid://cy3gx7mh8tguo" path="res://data/weapons/knife.tres" id="7_kusj5"]
+[ext_resource type="Resource" uid="uid://cebwcybo0djhp" path="res://data/items/ammo_pistol.tres" id="8_y8d3h"]
+[ext_resource type="Resource" uid="uid://d3vp6ki7uabbs" path="res://data/items/rifle_ammo.tres" id="9_ka27m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5eco"]
+albedo_color = Color(0, 0.41687015, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jk54q"]
+material = SubResource("StandardMaterial3D_w5eco")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jk54q"]
+
+[node name="Merchant" type="Area3D" unique_id=976508038]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_rr85y")
+prompt = "Торговать"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1610967922]
+mesh = SubResource("CapsuleMesh_jk54q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=699432210]
+shape = SubResource("CapsuleShape3D_jk54q")
+
+[node name="MerchantComponent" type="Node" parent="." unique_id=729834613]
+script = ExtResource("1_n5lsg")
+items_for_sale = Array[ExtResource("3_hu4mj")]([ExtResource("4_v1r6a"), ExtResource("5_hvxv6"), ExtResource("6_wsosj"), ExtResource("7_kusj5"), ExtResource("8_y8d3h"), ExtResource("9_ka27m")])

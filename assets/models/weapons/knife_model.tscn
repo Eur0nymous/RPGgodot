@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bc3aswiinsop4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jk54q"]
+size = Vector3(0.01, 0.5376953, 0.13879028)
+
+[node name="KnifeModel" type="Node3D" unique_id=1534833341]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=309194208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11884764, -0.028375853)
+mesh = SubResource("BoxMesh_jk54q")

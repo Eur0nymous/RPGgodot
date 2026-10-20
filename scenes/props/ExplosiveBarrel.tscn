@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cjx8s43paf53j"]
+
+[ext_resource type="Texture2D" uid="uid://bb7eu261f18pb" path="res://assets/textures/world/i.jpg" id="1_1gjn4"]
+[ext_resource type="Script" uid="uid://btpjwl6p07ha" path="res://systems/destructible/Breakable.gd" id="2_1gjn4"]
+[ext_resource type="PackedScene" uid="uid://22vsrbqcrv7l" path="res://scenes/effects/WoodImpact.tscn" id="2_6axt2"]
+[ext_resource type="Script" uid="uid://btdqf7dyi7rqa" path="res://systems/destructible/BreakableComponent.gd" id="2_syfwd"]
+[ext_resource type="PackedScene" uid="uid://dyrs1h8sltgxx" path="res://scenes/effects/WoodDebris.tscn" id="3_go2ol"]
+[ext_resource type="Script" uid="uid://by32jo1v5pflc" path="res://systems/destructible/ExplosiveComponent.gd" id="3_ildp7"]
+[ext_resource type="PackedScene" uid="uid://beimde3yjk2rg" path="res://scenes/effects/ExplosionEffect.tscn" id="4_6axt2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jk54q"]
+friction = 0.8
+bounce = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5eco"]
+albedo_texture = ExtResource("1_1gjn4")
+uv1_scale = Vector3(0.855, 0.88, 1)
+uv1_offset = Vector3(-0.495, 0.59, 1.025)
+uv2_scale = Vector3(4.39, 2.73, 2.68)
+uv2_offset = Vector3(-0.1, 0, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jk54q"]
+material = SubResource("StandardMaterial3D_w5eco")
+top_radius = 0.4
+bottom_radius = 0.4
+height = 1.3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jk54q"]
+height = 1.0114136
+radius = 0.34570313
+
+[node name="ExplosiveBarrel" type="RigidBody3D" unique_id=1726993170]
+transform = Transform3D(1.364105, 0, 0, 0, 1.5619419, 0, 0, 0, 1.4123801, 0, 0, 0)
+collision_mask = 3
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_jk54q")
+script = ExtResource("2_1gjn4")
+impact_effect_scene = ExtResource("2_6axt2")
+debris_scene = ExtResource("3_go2ol")
+break_effect_scene = ExtResource("4_6axt2")
+explosive_damage = 100
+explosive_radius = 10.0
+explosive_effect_scene = ExtResource("4_6axt2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1586310028]
+mesh = SubResource("CylinderMesh_jk54q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=142576199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.1552734e-05, 0)
+shape = SubResource("CylinderShape3D_jk54q")
+
+[node name="BreakableComponent" type="Node" parent="." unique_id=1146723352]
+script = ExtResource("2_syfwd")
+max_health = 15
+
+[node name="ExplosiveComponent" type="Node" parent="." unique_id=1249520884]
+script = ExtResource("3_ildp7")
+explosion_effect_scene = ExtResource("4_6axt2")

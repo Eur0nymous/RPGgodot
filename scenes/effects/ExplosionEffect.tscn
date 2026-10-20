@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://beimde3yjk2rg"]
+
+[ext_resource type="Script" uid="uid://dugnvng2x8fjd" path="res://scenes/effects/ExplosionEffect.gd" id="1_t82qx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5eco"]
+albedo_color = Color(0.71801126, 0.2550077, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_jk54q"]
+material = SubResource("StandardMaterial3D_w5eco")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_das7w"]
+albedo_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_2auu8"]
+material = SubResource("StandardMaterial3D_das7w")
+size = Vector2(0.3, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rb2t7"]
+albedo_color = Color(0.9421243, 0.8356501, 3.85046e-07, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_srf1h"]
+material = SubResource("StandardMaterial3D_rb2t7")
+size = Vector2(0.4, 0.4)
+
+[node name="ExplosionEffect" type="Node3D" unique_id=565460693]
+script = ExtResource("1_t82qx")
+
+[node name="Fire" type="CPUParticles3D" parent="." unique_id=167727825]
+emitting = false
+amount = 32
+lifetime = 1.31
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_jk54q")
+direction = Vector3(1, 1, 0)
+spread = 180.0
+gravity = Vector3(0, 2, 0)
+initial_velocity_max = 4.0
+scale_amount_max = 2.0
+
+[node name="Smoke" type="CPUParticles3D" parent="." unique_id=1132410018]
+emitting = false
+amount = 16
+lifetime = 1.5
+one_shot = true
+mesh = SubResource("QuadMesh_2auu8")
+direction = Vector3(1, 1, 0)
+spread = 60.0
+gravity = Vector3(0, 1.5, 0)
+initial_velocity_max = 1.5
+scale_amount_max = 4.0
+
+[node name="Spark" type="CPUParticles3D" parent="." unique_id=96297485]
+emitting = false
+amount = 100
+lifetime = 0.32
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 0.05
+mesh = SubResource("QuadMesh_srf1h")
+direction = Vector3(0, 1, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 6.0
+
+[node name="Light" type="OmniLight3D" parent="." unique_id=493722820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+light_color = Color(1, 0.85430586, 0.5847179, 1)
+light_energy = 8.0
+omni_range = 8.0

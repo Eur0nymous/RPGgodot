@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cnqr1pfia7sx1"]
+
+[ext_resource type="Texture2D" uid="uid://bv46mk44t8wkv" path="res://assets/textures/weapons/360_F_96104557_P323WMCrUf5clKoCVLSojXhpq2eaiGAy.jpg" id="1_ucgf7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2auu8"]
+albedo_color = Color(0.5823583, 0.5823581, 1.92523e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ucgf7"]
+material = SubResource("StandardMaterial3D_2auu8")
+size = Vector3(0.21466064, 0.25092316, 0.47084045)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_das7w"]
+albedo_color = Color(0.2819302, 0.11449922, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w5eco"]
+material = SubResource("StandardMaterial3D_das7w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uw6ay"]
+albedo_texture = ExtResource("1_ucgf7")
+uv1_scale = Vector3(1.285, 6.355, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srf1h"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_jk54q"]
+material = SubResource("StandardMaterial3D_srf1h")
+text = "Патрон ПМ
+9мм"
+font_size = 6
+
+[node name="ammo_pistol" type="Node3D" unique_id=1296031150]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2059165986]
+transform = Transform3D(1, 0, 0, 0, 0.5839015, 0, 0, 0, 1, -0.008758545, 0.12686539, 0.01638031)
+mesh = SubResource("BoxMesh_ucgf7")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=1214676470]
+transform = Transform3D(0.19081308, 0, 0, 0, 0.1166786, 0, 0, 0, 0.6051256, -0.008900225, 0.11735496, 0.11559062)
+operation = 2
+mesh = SubResource("BoxMesh_w5eco")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="." unique_id=942703028]
+transform = Transform3D(0.14887746, 0, 0, 0, 0.1166786, 0, 0, 0, 0.46416137, -0.008900225, 0.123762816, 0.17675868)
+material_override = SubResource("StandardMaterial3D_uw6ay")
+operation = 2
+mesh = SubResource("BoxMesh_w5eco")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=629143743]
+transform = Transform3D(0.007856125, -0.9999555, 0.005241391, -4.656613e-10, 0.005241539, 0.99998623, -0.9999692, -0.007856017, 4.1177933e-05, -0.00036458904, 0.18064457, -2.8643044e-06)
+mesh = SubResource("TextMesh_jk54q")

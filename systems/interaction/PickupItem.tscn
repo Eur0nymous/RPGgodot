@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bds2cl76tjrpm"]
+
+[ext_resource type="Script" uid="uid://gdcqnox2rjk2" path="res://systems/interaction/PickupItem.gd" id="1_gynso"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gynso"]
+friction = 0.8
+bounce = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5eco"]
+albedo_color = Color(0.95893246, 0.8978381, 2.3102762e-06, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jk54q"]
+material = SubResource("StandardMaterial3D_w5eco")
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jk54q"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[node name="PickupItem" type="RigidBody3D" unique_id=1194458694]
+collision_layer = 4
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_gynso")
+script = ExtResource("1_gynso")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1203276158]
+mesh = SubResource("BoxMesh_jk54q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=445615083]
+shape = SubResource("BoxShape3D_jk54q")

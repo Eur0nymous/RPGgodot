@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c21jtci0i4fbw"]
+
+[ext_resource type="Script" uid="uid://1wc5ikelh0v7" path="res://scenes/effects/EnemyGib.gd" id="1_4xy54"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_srf1h"]
+friction = 0.7
+bounce = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kqrk5"]
+albedo_color = Color(0.5333242, 1.0949746e-06, 2.8878452e-07, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dr08r"]
+material = SubResource("StandardMaterial3D_kqrk5")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_das7w"]
+radius = 0.1
+
+[node name="EnemyGib" type="RigidBody3D" unique_id=1561538223]
+mass = 0.349
+physics_material_override = SubResource("PhysicsMaterial_srf1h")
+script = ExtResource("1_4xy54")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1355435847]
+mesh = SubResource("SphereMesh_dr08r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=714748019]
+shape = SubResource("SphereShape3D_das7w")

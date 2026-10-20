@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="RangedWeapon" format=3 uid="uid://dvbimcs8bopw"]
+
+[ext_resource type="Texture2D" uid="uid://vmi82m4rb6df" path="res://assets/textures/weapons/pistol_ico.png" id="1_6ryra"]
+[ext_resource type="PackedScene" uid="uid://b4bq5x6endgo0" path="res://scenes/projectiles/projectile.tscn" id="1_a40w6"]
+[ext_resource type="Script" uid="uid://c66h7f4c0hnn" path="res://data/weapons/RangedWeapon.gd" id="1_ihp4e"]
+[ext_resource type="PackedScene" uid="uid://c8quqnhgb0fkr" path="res://assets/models/weapons/pistol_model.tscn" id="1_o8lbu"]
+
+[resource]
+script = ExtResource("1_ihp4e")
+projectile_speed = 45.0
+projectile_scene = ExtResource("1_a40w6")
+damage = 15
+cooldown = 0.6
+range = 20.0
+is_ranged = true
+model_scene = ExtResource("1_o8lbu")
+ammo_type = "pistol"
+magazine_size = 8
+id = "pistol"
+name = "Пистолет"
+icon = ExtResource("1_6ryra")
+world_model_scene = ExtResource("1_o8lbu")
+price = 80
+metadata/_custom_type_script = "uid://c66h7f4c0hnn"
