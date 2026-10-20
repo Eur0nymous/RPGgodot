@@ -1,33 +1,48 @@
 @echo off
-chcp 65001 >nul
 cd /d "%~dp0"
 
 set HOME=C:\Users\student314
 
-echo АВТО КОМИТТЕР РПГ НА ГОДОТ
+if exist ".git\index.lock" del ".git\index.lock"
+
+echo === Add ===
 git add .
 
-echo === Коммит ===
-set /p msg="Введите сообщение коммита (Enter — 'Update'): "
+echo === Commit ===
+set /p msg="Commit message (Enter = Update): "
 if "%msg%"=="" set msg=Update
 git commit -m "%msg%"
 
-echo === Push на GitHub ===
+echo === Pull --rebase GitHub ===
+git pull --rebase github main
+if errorlevel 1 (
+    echo Error on pull --rebase GitHub!
+    pause
+    exit /b 1
+)
+echo === Push GitHub ===
 git push github main
 if errorlevel 1 (
-    echo Ошибка при push на GitHub!
+    echo Error on push GitHub!
     pause
     exit /b 1
 )
 
-echo === Push на GitFlic ===
-git push origin main
+echo === Pull --rebase GitFlic ===
+git pull --rebase gitflic main
 if errorlevel 1 (
-    echo Ошибка при push на GitFlic!
+    echo Error on pull --rebase GitFlic!
+    pause
+    exit /b 1
+)
+echo === Push GitFlic ===
+git push gitflic main
+if errorlevel 1 (
+    echo Error on push GitFlic!
     pause
     exit /b 1
 )
 
 echo.
-echo Готово! Изменения залиты на GitHub и GitFlic
+echo === Done! Pushed to GitHub and GitFlic ===
 pause
